@@ -1,0 +1,108 @@
+@import "tailwindcss";
+@theme {
+ --color-surface:#f9f9ff;
+ --color-ink:#111c2d;
+ --color-muted:#53616c;
+ --color-primary:#00668a;
+ --color-sky:#38bdf8;
+ --color-sky-soft:#c4e7ff;
+ --color-blush:#ffdadc;
+ --color-pink:#fb7185;
+ --color-butter:#ffdf9f;
+ --color-cream:#fff4de;
+ --color-lavender:#f0f3ff;
+ --font-sans:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+}
+@layer base {
+ body {@apply m-0 bg-surface font-sans text-ink antialiased;}
+ button,a {-webkit-tap-highlight-color:transparent;}
+ button {@apply cursor-pointer;}
+ button:disabled {@apply cursor-not-allowed opacity-35;}
+ a,button {touch-action:manipulation;}
+ :focus-visible {outline:3px solid #00668a;outline-offset:4px;}
+ ::selection {background:#c4e7ff;}
+ [hidden] {display:none!important;}
+}
+@layer components {
+ .page-width {@apply mx-auto w-full max-w-[1280px] px-6 lg:px-12;}
+ .reading-width {@apply mx-auto w-full max-w-[900px] px-6;}
+ .site-header {@apply sticky top-0 z-30 bg-surface/95 backdrop-blur-xl;box-shadow:0 4px 20px -4px #cfdaf255;}
+ .brand-icon {@apply flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-sky text-primary;box-shadow:0 3px 0 #00668a;}
+ .nav-pill {@apply rounded-full px-5 py-2 text-sm font-semibold text-muted transition-colors hover:bg-sky-soft;}
+ .nav-active {@apply bg-sky text-ink;box-shadow:0 3px 0 #00668a;}
+ .pill {@apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-all active:translate-y-0.5;}
+ .pill-blue {@apply bg-sky text-[#00354a] hover:bg-[#7bd0ff];box-shadow:0 3px 0 #00668a;}
+ .pill-soft {@apply bg-[#dee8ff] text-primary hover:bg-sky-soft;}
+ .eyebrow {@apply text-xs font-semibold tracking-wide;}
+ .welcome-panel {@apply relative grid gap-8 overflow-hidden rounded-[40px] bg-white p-7 lg:grid-cols-[1.35fr_1fr] lg:p-10;box-shadow:0 10px 25px -5px #cfdaf266;background:radial-gradient(ellipse at 100% 0%,#e3f3ff 0%,transparent 55%),radial-gradient(ellipse at 0% 100%,#fff0f1 0%,transparent 45%),white;}
+ .object-card {@apply flex flex-col items-center gap-1 rounded-[28px] bg-lavender p-4 text-center transition-transform hover:-translate-y-1 active:translate-y-0;box-shadow:0 4px 0 #dee8ff;}
+ .object-card strong {@apply mt-2 text-sm;}
+ .object-card>span:last-child {@apply text-xs leading-5 text-muted;}
+ .object-icon {@apply flex h-14 w-14 items-center justify-center rounded-full;box-shadow:0 3px 0 #1e293b13;}
+ .soft-card {@apply rounded-[28px] bg-white;box-shadow:0 4px 0 #dee8ff,0 10px 24px -18px #cfdaf2;}
+ .tag {@apply inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium;}
+ .text-link {@apply inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline;}
+ .photo-card {@apply rounded-[28px] bg-white p-3 pb-4 transition-transform hover:-translate-y-1;box-shadow:0 4px 0 #dee8ff;}
+ .filter-pill {@apply rounded-full bg-lavender px-4 py-2 text-sm font-medium text-primary transition-colors hover:bg-sky-soft;}
+ .filter-active {@apply bg-primary text-white hover:bg-primary;}
+ .masonry {columns:3;column-gap:14px;}
+ .masonry-item {break-inside:avoid;margin-bottom:16px;display:inline-block;}
+ .story-section {@apply mb-10;}
+ .modal-overlay {@apply fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-ink/40 p-5 backdrop-blur-sm;}
+ .modal-dark {@apply bg-[#172034]/85 backdrop-blur-md;}
+ .note-dialog {@apply relative m-auto w-full max-w-lg rounded-[32px] bg-white p-8 shadow-xl;}
+ .lightbox-dialog {@apply flex h-[calc(100dvh-48px)] w-full max-w-6xl flex-col gap-4 py-2;}
+ .lightbox-image-row {@apply grid min-h-0 flex-1 grid-cols-[48px_minmax(0,1fr)_48px] items-center gap-4;}
+ .lightbox-image {max-width:100%;max-height:100%;width:100%;height:100%;min-height:0;object-fit:contain;border-radius:18px;}
+ .icon-button {@apply flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-ink shadow-md hover:bg-sky-soft;}
+ .pet-dock {@apply fixed bottom-5 right-5 z-40;}
+ .dog-button {@apply relative flex h-[106px] w-[106px] flex-col items-center justify-end rounded-[30px] bg-sky-soft/60 p-1 transition-transform hover:-translate-y-1;box-shadow:0 6px 14px #00668a17;}
+ .dog-button .puppy {@apply h-[94px] w-[100px] shrink-0 overflow-visible;}
+ .dog-name {@apply flex items-center gap-1 rounded-full bg-white px-3 py-1 text-[11px] text-primary;}
+ .pet-menu {@apply absolute bottom-[120px] right-0 w-[250px] rounded-[28px] bg-white p-5 shadow-xl;box-shadow:0 8px 35px #111c2d22,0 0 0 3px #e7eeff;}
+ .pet-action {@apply flex items-center justify-center gap-2 rounded-full px-3 py-2 text-sm font-semibold transition-transform active:scale-95;}
+ .pet-paw {@apply flex items-center gap-2 rounded-full bg-sky-soft px-4 py-3 text-sm font-semibold text-primary shadow-md;}
+ .pet-hearts {@apply absolute -top-8 left-0 right-0 text-center text-2xl text-pink;animation:hearts 1s ease-out infinite;}
+
+ .page-enter {animation:appear .22s ease-out;}
+ .skip-link {@apply fixed -top-20 left-5 z-[100] rounded-full bg-primary px-5 py-3 text-white focus:top-3;}
+}
+@keyframes appear {from{opacity:.4;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+@keyframes hearts {from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(-20px)}}
+@media (min-width:1400px){.pet-dock{right:16px;}}
+@media (max-width:1100px){.pet-dock{right:10px;bottom:12px}.dog-button{width:80px;height:86px}.dog-button .puppy{width:76px;height:72px}.pet-menu{bottom:100px}.page-width{padding-right:100px}.reading-width{padding-right:100px}.site-header .page-width{padding-right:24px}.masonry{columns:2;}}
+@media (max-width:640px){.page-width,.reading-width{padding-left:16px;padding-right:16px}.site-header{position:relative}.nav-pill{padding-left:16px;padding-right:16px}.masonry{columns:2}.lightbox-image-row{grid-template-columns:36px minmax(0,1fr) 36px;gap:4px}.icon-button{width:36px;height:36px}.lightbox-dialog{gap:12px}.pet-dock{bottom:12px;right:12px}.object-card{padding:12px 8px}footer{padding-bottom:120px!important;}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important;}}
+/* Reserve a desktop gutter so the companion never covers reading or photo controls. */
+@media (min-width:1101px) and (max-width:1500px){main .page-width{padding-right:148px;}main .reading-width{max-width:min(900px,calc(100% - 220px));}}
+
+/* Layered SVG pet: transforms are local to separate body parts, never a bitmap. */
+.puppy-body {transform-origin:82px 139px;animation:puppy-breathe 4.8s ease-in-out infinite;}
+.puppy-head {transform-origin:81px 102px;}
+.puppy-tail {transform-origin:119px 117px;animation:puppy-idle-tail 8s ease-in-out infinite;}
+.puppy-ear-left {transform-origin:48px 42px;animation:puppy-ear-twitch 9s ease-in-out infinite;}
+.puppy-ear-right {transform-origin:112px 42px;animation:puppy-ear-twitch 9s 0.15s ease-in-out infinite;}
+.puppy-eye-left {transform-origin:60px 67px;animation:puppy-blink 5.6s infinite;}
+.puppy-eye-right {transform-origin:102px 67px;animation:puppy-blink 5.6s infinite;}
+.puppy-smile-eyes,.puppy-tongue {display:none;}
+.puppy-curious .puppy-head {animation:puppy-hello .65s ease-out both;}
+.puppy-curious .puppy-tail {animation:puppy-wag .32s ease-in-out 8;}
+.puppy-happy .puppy-open-eyes {display:none;}
+.puppy-happy .puppy-smile-eyes,.puppy-happy .puppy-tongue {display:block;}
+.puppy-happy .puppy-head {animation:puppy-nuzzle .65s ease-in-out infinite;}
+.puppy-happy .puppy-tail {animation:puppy-wag .22s ease-in-out infinite;}
+.puppy-happy .puppy-ear {animation:puppy-ear-twitch .65s ease-in-out infinite;}
+@keyframes puppy-breathe {0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.025)}}
+@keyframes puppy-blink {0%,42%,46%,100%{transform:scaleY(1)}44%{transform:scaleY(.08)}}
+@keyframes puppy-idle-tail {0%,78%,100%{transform:rotate(0)}83%,93%{transform:rotate(-12deg)}88%,97%{transform:rotate(10deg)}}
+@keyframes puppy-ear-twitch {0%,65%,100%{transform:rotate(0)}78%{transform:rotate(7deg)}90%{transform:rotate(-3deg)}}
+@keyframes puppy-wag {0%,100%{transform:rotate(-18deg)}50%{transform:rotate(20deg)}}
+@keyframes puppy-hello {0%{transform:rotate(0)}55%{transform:rotate(-8deg)}100%{transform:rotate(-4deg)}}
+@keyframes puppy-nuzzle {0%,100%{transform:rotate(-5deg) translateY(0)}50%{transform:rotate(5deg) translateY(-2px)}}
+
+/* A short kiss and cuddle response, separate from the petting motion. */
+.puppy-kissing .puppy-head {animation:puppy-kiss 1s ease-in-out infinite;}
+.puppy-kissing .puppy-body {animation:puppy-cuddle 1s ease-in-out infinite;}
+@keyframes puppy-kiss {0%,100%{transform:translateY(0) scale(1)}45%,65%{transform:translateY(-3px) scale(1.12) rotate(-5deg)}}
+@keyframes puppy-cuddle {0%,100%{transform:rotate(0)}50%{transform:rotate(4deg)}}
